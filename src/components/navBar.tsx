@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import styled from 'styled-components'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import Image from 'next/image'
 const Navbar = () => {
   const router = useRouter()
 
@@ -66,7 +66,13 @@ const Navbar = () => {
             checkRouterMatch('/') ? 'active' : ''
           } logo primary-border-bottom`}
         >
-          <img src="../logo.png" width={20} height={20}></img> TASKWATCH
+          <Image
+            src={`/logo.png`}
+            alt="task-watch-kanban-tool"
+            width={20}
+            height={20}
+          />
+          TASKWATCH
         </Link>
         <Link
           className={`${

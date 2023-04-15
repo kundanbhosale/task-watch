@@ -1,4 +1,6 @@
 import { ErrorStateBanner } from '@/components/stateBanners'
+import * as Sentry from '@sentry/nextjs'
+
 {
   /* {statusCode
         ? `An error ${statusCode} occurred on server`
@@ -22,8 +24,13 @@ const Error = ({ statusCode }: any) => {
   )
 }
 
-Error.getInitialProps = ({ res, err }: any) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404
+Error.getInitialProps = async (ctx: any) => {
+  const statusCode = ctx.res
+    ? ctx.res.statusCode
+    : ctx.err
+    ? ctx.err.statusCode
+    : 404
+  await Sentry.captureUnderscoreErrorException(ctx)
   return { statusCode }
 }
 

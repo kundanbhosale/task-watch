@@ -22,6 +22,7 @@
     "@editorjs/table": "^2.2.1",
     "@editorjs/underline": "^1.1.0",
     "@hello-pangea/dnd": "^16.2.0",
+    "@sentry/nextjs": "^7.48.0",
     "dayjs": "^1.11.7",
     "dexie": "^3.2.3",
     "editorjs-drag-drop": "^1.1.13",
