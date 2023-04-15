@@ -6,6 +6,8 @@ import dynamic from 'next/dynamic'
 import { Fragment } from 'react'
 import { ThemeProvider } from 'styled-components'
 import Script from 'next/script'
+import Head from 'next/head'
+import NextNProgress from 'nextjs-progressbar'
 
 const Toaster = dynamic(
   () => import('react-hot-toast').then((c) => c.Toaster),
@@ -17,6 +19,16 @@ const Toaster = dynamic(
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <Fragment>
+      <Head>
+        <title>Task Watch</title>
+        <meta
+          name="description"
+          content="Simplify Your Life and Work with Our Free, Personal Use Kanban Board - Your Data Stored Locally and Offline-Friendly."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
@@ -30,7 +42,13 @@ const App = ({ Component, pageProps }: AppProps) => {
           gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
         `}
       </Script>
-
+      <NextNProgress
+        color={Theme.colors.primary}
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={5}
+        showOnShallow={true}
+      />
       <ThemeProvider theme={Theme}>
         <GlobalStyles />
         <Navbar />

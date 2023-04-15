@@ -24,9 +24,9 @@ const Navbar = () => {
   }, [])
 
   const checkRouterMatch = (route: string) => {
-    return route.charAt(0) === '/'
+    return route === '/'
       ? router.pathname === route
-      : router.pathname.split('/')[1].includes(route)
+      : router.pathname.slice(0, route.length) === route
   }
 
   return (
@@ -51,9 +51,9 @@ const Navbar = () => {
       <div className="navbar-links">
         <Link
           className={`${
-            checkRouterMatch('board') ? 'active' : ''
+            checkRouterMatch('/app/board') ? 'active' : ''
           } primary-border-bottom`}
-          href="/boards"
+          href="/app/boards"
           passHref
         >
           {/* <Icon type="work" /> */}
@@ -66,13 +66,13 @@ const Navbar = () => {
             checkRouterMatch('/') ? 'active' : ''
           } logo primary-border-bottom`}
         >
-          TASKWATCH
+          <img src="../logo.png" width={20} height={20}></img> TASKWATCH
         </Link>
         <Link
           className={`${
-            checkRouterMatch('my-notes') ? 'active' : ''
+            checkRouterMatch('/app/my-notes') ? 'active' : ''
           } primary-border-bottom`}
-          href="/my-notes"
+          href="/app/my-notes"
           passHref
         >
           {/* <Icon type="emoji" /> */}

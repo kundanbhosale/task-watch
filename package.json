@@ -29,6 +29,7 @@
     "lexorank": "^1.0.5",
     "nanoid": "^4.0.2",
     "next": "13.3.0",
+    "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",

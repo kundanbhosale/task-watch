@@ -9,6 +9,8 @@ html {
 
 }
 
+
+
 html,
 body {
   padding: 0;
@@ -52,6 +54,7 @@ body {
   border-radius: 50rem;
   border: 3px solid #ddd;
 }
+
 .secondary-scrollbar::-webkit-scrollbar{
   width: 0.2rem;
   height: 0.2rem;
@@ -88,6 +91,7 @@ padding: 0;
 box-sizing: border-box;
 display: flex;
 flex-direction: column;
+overflow-x: hidden;
 }
 main {
 display: flex;
