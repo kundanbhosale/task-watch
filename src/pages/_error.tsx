@@ -4,7 +4,7 @@ import { ErrorStateBanner } from '@/components/stateBanners'
         ? `An error ${statusCode} occurred on server`
         : 'An error occurred on client'} */
 }
-const Error = ({ statusCode }) => {
+const Error = ({ statusCode }: any) => {
   const message = () => {
     switch (statusCode) {
       case 404:
@@ -22,7 +22,7 @@ const Error = ({ statusCode }) => {
   )
 }
 
-Error.getInitialProps = ({ res, err }) => {
+Error.getInitialProps = ({ res, err }: any) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404
   return { statusCode }
 }

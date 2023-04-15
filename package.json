@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "set-repo-secrets": "sh gen_env_vars.sh",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
