@@ -8,6 +8,7 @@ import { ThemeProvider } from 'styled-components'
 import Script from 'next/script'
 import Head from 'next/head'
 import NextNProgress from 'nextjs-progressbar'
+import { ViewportProvider } from '@/contexts/viewport'
 
 const Toaster = dynamic(
   () => import('react-hot-toast').then((c) => c.Toaster),
@@ -49,14 +50,16 @@ const App = ({ Component, pageProps }: AppProps) => {
         height={5}
         showOnShallow={true}
       />
-      <ThemeProvider theme={Theme}>
-        <GlobalStyles />
-        <Navbar />
-        <Toaster position="bottom-center" />
-        <main>
-          <Component {...pageProps} />
-        </main>
-      </ThemeProvider>
+      <ViewportProvider>
+        <ThemeProvider theme={Theme}>
+          <GlobalStyles />
+          <Navbar />
+          <Toaster position="bottom-center" />
+          <main>
+            <Component {...pageProps} />
+          </main>
+        </ThemeProvider>
+      </ViewportProvider>
     </Fragment>
   )
 }

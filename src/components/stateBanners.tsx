@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -6,19 +7,28 @@ type IBannerType = {
   title?: string
   summary?: string
   src?: string
-} & React.ImgHTMLAttributes<HTMLImageElement>
+  width?: number | `${number}`
+  height?: number | `${number}`
+} & React.HTMLAttributes<HTMLDivElement>
 
 const StateBanner: React.FC<IBannerType> = ({
   title,
   summary,
   src,
   handleClick,
+  width,
+  height,
   ...rest
 }) => {
   return (
     <Wrapper>
-      <div className="banner-content">
-        <img src={src} {...rest} />
+      <div className="banner-content" {...rest}>
+        <Image
+          src={src || ''}
+          alt="task-watch-state-banner"
+          width={width || 250}
+          height={height || 250}
+        />
         <p className="banner-summary"> {summary}</p>
         {handleClick ? (
           <a
@@ -55,7 +65,7 @@ const EmptyStateBanner: React.FC<IBannerType> = ({
     <StateBanner
       title={title || 'Create New'}
       summary={summary || `It feels like there's nothing here!`}
-      src={src || '../empty.svg'}
+      src={src || '/empty.svg'}
       handleClick={handleClick}
       {...rest}
     />
@@ -82,8 +92,10 @@ const ErrorStateBanner: React.FC<IBannerType> = ({
     <StateBanner
       title={title || 'Oh no, Its an error!'}
       summary={summary || 'It feels like something went wrong!'}
-      src={src || '../error.svg'}
+      src={src || '/error.svg'}
       handleClick={handleClick}
+      width={175}
+      height={175}
       {...rest}
     />
   )

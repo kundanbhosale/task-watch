@@ -13,7 +13,7 @@ import CodeTool from '@editorjs/code'
 import DragDrop from 'editorjs-drag-drop'
 import Undo from 'editorjs-undo'
 import InlineCode from '@editorjs/inline-code'
-import ImageTool from '@editorjs/image'
+// import ImageTool from '@editorjs/image'
 import Paragraph from '@editorjs/paragraph'
 import { idGenerate } from '@/utils/idGenerate'
 
@@ -82,13 +82,13 @@ const BlockEditor = ({
           inlineToolbar: true,
         },
         underline: Underline,
-        image: {
-          class: ImageTool,
-          config: {
-            byFile: 'http://localhost:4000/uploadFile', // Your backend file uploader endpoint
-            byUrl: 'http://localhost:4000/fetchUrl', // Your endpoint that provides uploading by Url
-          },
-        },
+        // image: {
+        //   class: ImageTool,
+        //   config: {
+        //     byFile: 'http://localhost:4000/uploadFile', // Your backend file uploader endpoint
+        //     byUrl: 'http://localhost:4000/fetchUrl', // Your endpoint that provides uploading by Url
+        //   },
+        // },
         code: CodeTool,
         Marker: {
           class: Marker,
@@ -116,13 +116,6 @@ const BlockEditor = ({
       }
     }
   }, [])
-
-  // useEffect(() => {
-  //   if (!editorCore.current || !ready) return
-  //   const undo = new Undo({ editor: editorCore.current })
-  //   initialData && undo.initialize(initialData)
-  //   new DragDrop(editorCore.current)
-  // }, [editorCore.current, initialData, ready])
 
   return <Wrapper id={editorContainerID} className={className} style={style} />
 }

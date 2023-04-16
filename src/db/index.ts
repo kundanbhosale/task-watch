@@ -14,12 +14,12 @@ export class LocalDB extends Dexie {
   constructor() {
     super('Kanban')
     this.version(1).stores({
-      task_boards: 'id, title, owner, updated_at, created_at',
-      task_columns: 'id, title, color, board_id, rank, updated_at, created_at',
-      task_items:
-        'id, title, status, board_id, page_id, rank, updated_at, created_at',
-      pages: 'id, content, updated_at, created_at',
-      trash: 'id, table, delete_it, data, created_at, updated_at',
+      task_boards: 'id, updated_at',
+      task_columns: 'id, board_id, updated_at',
+      task_rows: 'id, board_id, updated_at',
+      task_items: 'id, board_id, updated_at',
+      pages: 'id, updated_at',
+      trash: 'id, table, delete_id, updated_at',
     })
     this.taskBoards = this.table('task_boards')
     this.taskItems = this.table('task_items')

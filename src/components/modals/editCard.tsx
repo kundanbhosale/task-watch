@@ -13,6 +13,7 @@ import Select from '../forms/select'
 import EditTaskPage from '../taskboard/editTaskPage'
 import dayjs from 'dayjs'
 import { handleAddTask, handleUpdateTask } from '@/utils/taskboard'
+import { ReadyOnlyValue } from '@/styled/label'
 
 const SingleCardModal = () => {
   const [oldData, setOldData] = useState<TaskItem | undefined>(undefined)
@@ -114,15 +115,37 @@ const SingleCardModal = () => {
                   />
                 </div>
                 <div className="edit-details">
-                  <StyledGrid>
+                  <StyledGrid className="mb">
                     <Label icon={<Icon type="checkbox" />} name={'Status'} />
                     <Select name="status" options={status} />
                   </StyledGrid>
 
-                  <StyledGrid>
-                    <Label icon={<Icon type="clock" />} name={'Created At'} />
-                    <p>{dayjs().format('DD MMM YYYY, hh:mm A')}</p>
-                  </StyledGrid>
+                  {oldData && (
+                    <Fragment>
+                      <StyledGrid className="mb">
+                        <Label
+                          icon={<Icon type="clock" />}
+                          name={'Create Time'}
+                        />
+                        <ReadyOnlyValue>
+                          {dayjs(oldData?.created_at).format(
+                            'DD MMM YYYY, hh:mm A'
+                          )}
+                        </ReadyOnlyValue>
+                      </StyledGrid>
+                      <StyledGrid className="mb">
+                        <Label
+                          icon={<Icon type="clock" />}
+                          name={'Last Updated'}
+                        />
+                        <ReadyOnlyValue>
+                          {dayjs(oldData?.updated_at).format(
+                            'DD MMM YYYY, hh:mm A'
+                          )}
+                        </ReadyOnlyValue>
+                      </StyledGrid>
+                    </Fragment>
+                  )}
                 </div>
               </Wrapper>
             </FormProvider>

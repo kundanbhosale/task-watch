@@ -28,3 +28,7 @@ export const StyledLabelLG = styled(StyledLabel)`
   font-size: 0.8rem;
   padding: 0.5em 1em;
 `
+
+export const ReadyOnlyValue = styled.p`
+  padding: 0.7em 0;
+`

@@ -101,7 +101,6 @@ padding: 0;
 }
 
 p, span, a , button, li, b{
-  display: block;
   margin: 0;
   padding: 0;
   color: ${({ theme }) => theme.shades.dark[900]};

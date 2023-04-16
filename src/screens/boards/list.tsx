@@ -126,6 +126,7 @@ const StyledBorderBox = styled(BorderBox)`
   cursor: pointer;
   /* min-height: 100px; */
   height: 95px;
+  width: calc(100% - 5px);
   margin: auto;
   p {
     display: flex;

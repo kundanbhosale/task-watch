@@ -87,7 +87,7 @@ const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.shades.primary[50]};
   border-radius: 0.4em;
   justify-content: space-between;
-  margin: 1em 2em 2em;
+  margin: 2em 2em;
   .action-block {
     display: flex;
     align-items: center;
