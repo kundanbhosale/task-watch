@@ -36,7 +36,8 @@ export default HomeScreen
 const HeroSection = styled.div`
   position: relative;
   display: block;
-  height: calc(100vh - 65px);
+  height: 100%;
+
   width: 100%;
   z-index: 0;
 `
