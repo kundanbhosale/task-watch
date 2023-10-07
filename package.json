@@ -29,7 +29,7 @@
     "immer": "^9.0.21",
     "lexorank": "^1.0.5",
     "nanoid": "^4.0.2",
-    "next": "13.3.0",
+    "next": "13.5.4",
     "nextjs-progressbar": "^0.0.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
